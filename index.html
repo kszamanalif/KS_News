@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KS_Zaman - Futuristic Portfolio</title>
+  <meta name="description" content="KS_Zaman's futuristic and aesthetic portfolio website." />
+  <meta name="keywords" content="KS_Zaman, portfolio, futuristic website, tech, creative" />
+  <meta name="author" content="KS_Zaman" />
+  
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      width: 100%;
+      max-width: 900px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #00ffc8;
+      text-shadow: 0 0 10px #00ffc8;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #66fff3;
+      letter-spacing: 1px;
+    }
+    
+    main {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    section {
+      background: rgba(0, 255, 200, 0.1);
+      border: 1px solid #00ffc8;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 15px #00ffc8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    section h2 {
+      margin-bottom: 15px;
+      color: #00ffc8;
+      text-shadow: 0 0 8px #00ffc8;
+    }
+    section img, section video {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffc8;
+      margin-bottom: 15px;
+    }
+    section input[type="file"] {
+      margin-top: 10px;
+      color: #00ffc8;
+      cursor: pointer;
+    }
+    
+    footer {
+      margin-top: 50px;
+      color: #00ffc8;
+      text-shadow: 0 0 10px #00ffc8;
+    }
+    
+    @media (max-width: 700px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      section img, section video {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>KS_Zaman</h1>
+    <p>Futuristic Portfolio & Creative Hub</p>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Editable Photo</h2>
+      <img id="photo" src="https://via.placeholder.com/300x200?text=Your+Photo" alt="User Photo" />
+      <input type="file" accept="image/*" onchange="changePhoto(event)" />
+    </section>
+    
+    <section>
+      <h2>Editable Video</h2>
+      <video id="video" controls>
+        <source src="https://sample-videos.com/video123/mp4/240/big_buck_bunny_240p_1mb.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <input type="file" accept="video/*" onchange="changeVideo(event)" />
+    </section>
+  </main>
+  
+  <footer>
+    &copy; 2025 KS_Zaman. All rights reserved.
+  </footer>
+  
+  <script>
+    function changePhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const img = document.getElementById('photo');
+      img.src = URL.createObjectURL(file);
+    }
+    function changeVideo(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const video = document.getElementById('video');
+      video.src = URL.createObjectURL(file);
+      video.load();
+      video.play();
+    }
+  </script>
+</body>
+</html>
